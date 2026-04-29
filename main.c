@@ -2,8 +2,8 @@
 #include <SDL2/SDL.h>
 #include <unistd.h>
 
-#define WIDTH	900
-#define HEIGHT	600
+#define WIN_WIDTH	900
+#define WIN_HEIGHT	600
 #define SIZE	20	// size of one block 
 
 typedef enum Direction { UP, DOWN, LEFT, RIGHT } Direction;
@@ -63,9 +63,9 @@ int main() {
 	SDL_Window* window = SDL_CreateWindow(
 		"Snake",		// title	
 		SDL_WINDOWPOS_CENTERED,	// horizontal position	
-		SDL_WINDOWPOS_CENTERED,	// vertical position 
-		WIDTH,			// window width 
-		HEIGHT,			// window height
+		SDL_WINDOWPOS_CENTERED,	// vertical position  
+		WIN_WIDTH,		// window width
+		WIN_HEIGHT,		// window height
 		SDL_WINDOW_SHOWN	// window is shown
 	);
 	SDL_Event event;
