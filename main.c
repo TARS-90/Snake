@@ -2,9 +2,9 @@
 #include <SDL2/SDL.h>
 #include <unistd.h>
 
-#define WIN_WIDTH	900
-#define WIN_HEIGHT	600
-#define SIZE	20	// size of one block 
+#define SIZE 20	// size of one block 
+#define WIN_WIDTH  900
+#define WIN_HEIGHT 600
 
 typedef enum Direction { UP, DOWN, LEFT, RIGHT } Direction;
 
@@ -61,18 +61,18 @@ void init_snake(Snake* snake) {
 
 int main() {
 	SDL_Window* window = SDL_CreateWindow(
-		"Snake",		// title	
-		SDL_WINDOWPOS_CENTERED,	// horizontal position	
-		SDL_WINDOWPOS_CENTERED,	// vertical position  
-		WIN_WIDTH,		// window width
-		WIN_HEIGHT,		// window height
-		SDL_WINDOW_SHOWN	// window is shown
+		"Snake",			// title	
+		SDL_WINDOWPOS_CENTERED,		// horizontal position	
+		SDL_WINDOWPOS_CENTERED,		// vertical position  
+		WIN_WIDTH,			// window width
+		WIN_HEIGHT,			// window height
+		SDL_WINDOW_SHOWN		// window is shown
 	);
 	SDL_Event event;
 	SDL_Surface* main_surface = SDL_GetWindowSurface(window);
 	Game game = {
-		(WIDTH - 2) / SIZE,
-		(HEIGHT - 2) / HEIGHT,
+		(WIN_WIDTH - 2) / SIZE,
+		(WIN_HEIGHT - 2) / SIZE,
 		0
 	};
 	
