@@ -6,29 +6,29 @@
 #define WIN_WIDTH  900
 #define WIN_HEIGHT 600
 
-typedef enum Direction { UP, DOWN, LEFT, RIGHT } Direction;
+enum Direction { UP, DOWN, LEFT, RIGHT };
 
-typedef struct Game {
+struct Game {
 	int width;
 	int height;
 	int is_end;
-} Game;
+};
 
-typedef struct Node {
+struct Node {
 	int x;
 	int y;
-	Node* next;
-} Node;
+	struct Node* next;
+};
 
-typedef struct Snake {
-	Node* head;
-	Direction direction;	
+struct Snake {
+	struct Node* head;
+	enum Direction direction;	
 	int length;  
-} Snake;
+};
 
-void add_node(Snake* snake, int x, int y) {
-	Node* tmp = snake->head;
-	Node* new = (Node*) malloc(sizeof(struct Node))	
+void add_node(struct Snake* snake, int x, int y) {
+	struct Node* tmp = snake->head;
+	struct Node* new = malloc(sizeof(struct Node));
 	new->x = x;
 	new->y = y;
 
@@ -39,17 +39,17 @@ void add_node(Snake* snake, int x, int y) {
 	tmp->next = new;
 	snake->length++;
 }
-void init_snake(Snake* snake) {
+void init_snake(struct Snake* snake) {
 	const int length = 5;	// starting length
+	enum Direction direction;
 	int x, y;
-	Direction direction
 
-	for (i = 0; i < length; i++) {
+	for (int i = 0; i < length; i++) {
 		if (i == 0) {
-			Node* head = (Node*) malloc(sizeof(struct Node));
+			struct Node* head = malloc(sizeof(struct Node));
 			head->x = x;
 			head->y = y;
-			head->direction = direction;
+			snake->direction = direction;
 			snake->head = head;
 			snake->length = 1;
 		}
@@ -70,7 +70,7 @@ int main() {
 	);
 	SDL_Event event;
 	SDL_Surface* main_surface = SDL_GetWindowSurface(window);
-	Game game = {
+	struct Game game = {
 		(WIN_WIDTH - 2) / SIZE,
 		(WIN_HEIGHT - 2) / SIZE,
 		0
@@ -79,7 +79,7 @@ int main() {
 
 
 	// game loop
-	while (!is_end) {
+	while (!game.is_end) {
 
 	}
 
