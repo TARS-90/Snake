@@ -40,7 +40,7 @@ void add_node(struct Snake* snake) {
 	int x = snake->tail->x;
 	int y = snake->tail->y;
 	
-	switch (tail->direction) {
+	switch (snake->tail->direction) {
 		case UP:
 			y--;
 			break;
@@ -59,7 +59,8 @@ void add_node(struct Snake* snake) {
 	}
 
 	new->x = x;
-	ney->y = y;
+	new->y = y;
+	new->direction = snake->tail->direction;
 	snake->tail->next = new
 	snake->tail = new;
 	snake->length++;
